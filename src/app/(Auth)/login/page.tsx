@@ -11,6 +11,7 @@ export default function LoginPage() {
   const router = useRouter();
 
   useEffect(() => {
+    
     if (status === "loading") return;
     if (session?.user) {
 

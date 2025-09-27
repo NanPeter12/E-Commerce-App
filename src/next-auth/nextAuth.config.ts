@@ -151,7 +151,10 @@
 //   },
 // };
 
-// src/config/nextAuth.ts
+
+
+
+// src/next-auth/nextAuth.ts
 import { NextAuthOptions, User as NextAuthUser } from "next-auth";
 import Credentials from "next-auth/providers/credentials";
 import { jwtDecode } from "jwt-decode";
