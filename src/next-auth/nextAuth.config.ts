@@ -159,12 +159,10 @@ import { NextAuthOptions, User as NextAuthUser } from "next-auth";
 import Credentials from "next-auth/providers/credentials";
 import { jwtDecode } from "jwt-decode";
 
-// نوع الـ JWT بعد فك التشفير
 type CustomJwtPayload = {
   id: string;
 };
 
-// نوع المستخدم بعد تسجيل الدخول
 export type AuthUser = {
   id: string;
   name: string;
@@ -172,7 +170,6 @@ export type AuthUser = {
   credentialsToken: string;
 };
 
-// Type augmentation لـ NextAuth
 declare module "next-auth" {
   interface Session {
     user: AuthUser;
@@ -258,7 +255,7 @@ export const nextAuthConfig: NextAuthOptions = {
   },
 
   session: {
-    maxAge: 60 * 60 * 24 * 7, // 7 أيام
+    maxAge: 60 * 60 * 24 * 7, 
   },
 
   secret: process.env.NEXTAUTH_SECRET,
