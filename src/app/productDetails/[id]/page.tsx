@@ -3,7 +3,6 @@ import { getSpecifiedProducts } from "../../_services/products.services"
 import { ProductType } from '../../_interfaces/products'
 import ProductGallery from "../../_Components/ProductDetailsImgs/ProductDetailsImgs"
 import AddToWishlistBtn from '_/app/_Components/AllWhichlistComponents/AddToWhichlistBtn/AddToWhichlistBtn/AddToWhichlistBtn'
-
 import AddToCartBtn from '_/app/_Components/allCartComponents/AddToCartBtn/AddToCartBtn'
 import { ProductDetailsProps } from './ProductDetails.types'
 
