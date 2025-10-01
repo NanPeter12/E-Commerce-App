@@ -1,4 +1,4 @@
-"use server"
+"use server";
 import { decode } from "next-auth/jwt";
 import { cookies } from "next/headers";
 
@@ -7,7 +7,9 @@ import { cookies } from "next/headers";
 export async function getAuthenticatedUserToken() {
   const cookie = await cookies();
 
-  const sessionToken = cookie.get("next-auth.session-token")?.value;
+  const sessionToken =
+    cookie.get("next-auth.session-token")?.value ||
+    cookie.get("__Secure-next-auth.session-token")?.value;
 
   const DECODEDTOKEN = await decode({
     token: sessionToken,
@@ -16,6 +18,3 @@ export async function getAuthenticatedUserToken() {
 
   return DECODEDTOKEN?.credentialsToken;
 }
-
-
-
