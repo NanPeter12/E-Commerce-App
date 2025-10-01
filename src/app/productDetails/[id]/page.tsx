@@ -7,9 +7,9 @@ import AddToWishlistBtn from '_/app/_Components/AllWhichlistComponents/AddToWhic
 import AddToCartBtn from '_/app/_Components/allCartComponents/AddToCartBtn/AddToCartBtn'
 import { ProductDetailsProps } from './ProductDetails.types'
 
-export default async function page(props: ProductDetailsProps) {
+export default async function page({ params }: ProductDetailsProps) {
 
-    const { id } =  props.params;
+    const { id } = params;
     const specifiedProduct: ProductType | null = await getSpecifiedProducts(id);
 
     if (!specifiedProduct) {
@@ -58,7 +58,7 @@ export default async function page(props: ProductDetailsProps) {
                             )}
                             {specifiedProduct.category && (
                                 <div className="flex items-center gap-2 bg-gray-50 p-2 rounded-lg">
-                                  
+
                                     <span className="text-sm font-semibold text-gray-700">
                                         Category: {specifiedProduct.category.name}
                                     </span>
