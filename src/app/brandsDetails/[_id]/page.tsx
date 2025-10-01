@@ -1,15 +1,15 @@
 import Image from "next/image";
 import { getSpecifiedBrand } from "_/app/_services/brands.services";
-import { BrandType } from "../../_interfaces/products"; 
+import { BrandType } from "../../_interfaces/products";
 
 type Props = {
 
-  params: any; 
+  params: any;
 };
 
 export default async function BrandDetails({ params }: Props) {
-  
-  const { _id } = await params; 
+
+  const { _id } = params;
 
   const brand: BrandType | null = await getSpecifiedBrand(_id);
 

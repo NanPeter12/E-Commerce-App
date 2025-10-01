@@ -7,7 +7,7 @@ type Props = {
 };
 
 export default async function CategoryDetailsPage({ params }: Props) {
-    const { _id } = await params;
+    const { _id } =  params;
     
     const subcategories: CategoryType[] = await getSubCategoriesByCategory(_id);
 

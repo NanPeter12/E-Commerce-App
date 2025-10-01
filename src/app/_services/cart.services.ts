@@ -30,7 +30,6 @@ import { getAuthenticatedUserToken } from "../utils/getUserToken";
 export async function getUserCart(): Promise<CartResponse | null> {
   const userToken = await getAuthenticatedUserToken();
 
-  console.log("DEBUG TOKEN:", userToken);
 
   if (!userToken) return null;
 
@@ -50,7 +49,7 @@ export async function getUserCart(): Promise<CartResponse | null> {
 
     const final: CartResponse = await res.json();
     return final;
-    
+
   } catch (error) {
     console.error("Cart fetch error:", error);
     return null;
