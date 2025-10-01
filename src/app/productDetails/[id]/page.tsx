@@ -104,8 +104,8 @@ export default async function page(props: ProductDetailsProps) {
 
                         {/* Action Buttons */}
                         <div className="flex gap-4">
-                            <AddToCartBtn productId={specifiedProduct._id} />
-                            <AddToWishlistBtn productId={specifiedProduct._id} />
+                            <AddToCartBtn productId={specifiedProduct.id} />
+                            <AddToWishlistBtn productId={specifiedProduct.id} />
                         </div>
                     </div>
                 </div>

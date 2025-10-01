@@ -10,12 +10,12 @@ export default function ProductCard({ product }: ProductCardTypeProps) {
 
     return (
         <div
-            key={product._id}
+            key={product.id}
             className="bg-neutral-900 rounded-2xl p-5 shadow-md hover:shadow-green-500/30 
             transition-transform duration-300 flex flex-col justify-between hover:scale-105"
         >
             {/* img product*/}
-            <Link href={`/productDetails/${product._id}`} className="relative w-full h-48 rounded overflow-hidden block">
+            <Link href={`/productDetails/${product.id}`} className="relative w-full h-48 rounded overflow-hidden block">
                 <Image
                     src={product.imageCover}
                     alt={product.slug}
@@ -26,7 +26,7 @@ export default function ProductCard({ product }: ProductCardTypeProps) {
 
             {/* info product*/}
             <div className="flex flex-col flex-grow mt-4">
-                <Link href={`/productDetails/${product._id}`}>
+                <Link href={`/productDetails/${product.id}`}>
                     <h2 className="text-lg font-semibold text-white line-clamp-1">
                         {product.slug}
                     </h2>
@@ -68,8 +68,8 @@ export default function ProductCard({ product }: ProductCardTypeProps) {
 
             {/*  Add to Cart */}
             <div className="flex items-center justify-between gap-3 rounded-xl shadow-md p-2 hover:shadow-lg hover:scale-[1.02] transition">
-                <AddToCartBtn productId={product._id} />
-                <AddToWishlistBtn productId={product._id} />
+                <AddToCartBtn productId={product.id} />
+                <AddToWishlistBtn productId={product.id} />
             </div>
 
 
