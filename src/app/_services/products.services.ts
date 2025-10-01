@@ -6,6 +6,7 @@ export async function getAllProducts(): Promise<ProductType[]> {
       cache: "force-cache",
     });
     const finalResult = await res.json();
+    console.log("products",finalResult)
     return finalResult.data as ProductType[];
   } catch (error) {
     return [];
@@ -23,6 +24,7 @@ export async function getSpecifiedProducts(
       }
     );
     const finalResult = await res.json();
+    console.log("finalResult",finalResult);
     return finalResult.data as ProductType;
   } catch (error) {
     return null;

@@ -1,5 +1,3 @@
 export type ProductDetailsProps = {
-  params: {
-    id: string;
-  };
-};
+    params: any
+}
