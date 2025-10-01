@@ -1,49 +1,26 @@
-import { Session } from "next-auth";  // <--- استورد Session
-import { JWT } from "next-auth/jwt";
+import NextAuth, { DefaultSession } from "next-auth";
 
-// -----------------------------
-// User Type
-// -----------------------------
-export type AuthUser = {
-  id: string;
-  name: string;
-  email: string;
-  accessToken: string; // token من API
-};
-
-// -----------------------------
-// Extend NextAuth Types
-// -----------------------------
 declare module "next-auth" {
   interface Session {
-    user: AuthUser;
-    accessToken?: string;
+    user?: {
+      id?: string;
+      name?: string | null;
+      email?: string | null;
+      credentialsToken?: string;
+    };
   }
 
-  interface User extends AuthUser {}
-}
-
-declare module "next-auth/jwt" {
-  interface JWT {
+  interface User {
     id?: string;
-    name?: string;
-    email?: string;
-    accessToken?: string;
+    name?: string | null;
+    email?: string | null;
+    credentialsToken?: string;
+  }
+
+  interface JWT {
+    userID?: string;
+    name?: string | null;
+    email?: string | null;
+    credentialsToken?: string;
   }
 }
-
-// -----------------------------
-// Callback Params Types
-// -----------------------------
-export type JwtCallbackParams = {
-  token: JWT;
-  user?: any;
-    account?: any;
-  profile?: any;
-  isNewUser?: boolean;
-};
-
-export type SessionCallbackParams = {
-  session: Session;  // <--- دلوقتي TS يعرفه
-  token: JWT;
-};
