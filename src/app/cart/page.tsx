@@ -59,27 +59,32 @@ export default async function Page() {
             className="flex gap-4 items-center bg-white shadow rounded-xl p-4 hover:shadow-md transition"
           >
             {/* brand photo*/}
-            <img
-              src={item.product.imageCover}
-              alt={item.product.title}
-              className="w-20 h-20 object-cover rounded-lg border"
-            />
+            <Link
+              href={`/productDetails/${item.product.id}`}
+              className="flex gap-4 items-center flex-1"
+            >
+              <img
+                src={item.product.imageCover}
+                alt={item.product.title}
+                className="w-20 h-20 object-cover rounded-lg border"
+              />
 
-            {/* Info */}
-            <div className="flex-1">
-              <h2 className="text-lg font-medium text-gray-700">
-                {item.product.title}
-              </h2>
-              <p className="text-sm text-gray-500">Qty: {item.count}</p>
-              <p className="text-green-600 font-semibold">{item.price} EGP</p>
-            </div>
+              {/* Info */}
+              <div className="flex-1">
+                <h2 className="text-lg font-medium text-gray-700">
+                  {item.product.title}
+                </h2>
+                <p className="text-sm text-gray-500">Qty: {item.count}</p>
+                <p className="text-green-600 font-semibold">{item.price} EGP</p>
+              </div>
+            </Link>
 
             {/* actions */}
             <div className="flex flex-col items-center gap-2">
               <div className="flex items-center justify-between gap-2">
 
-                <ChangeCountBtn isIncrement={true} productId={item.product.id} newCount={item.count + 1} />   
-                <ChangeCountBtn isIncrement={false} productId={item.product.id} newCount={item.count - 1} />  
+                <ChangeCountBtn isIncrement={true} productId={item.product.id} newCount={item.count + 1} />
+                <ChangeCountBtn isIncrement={false} productId={item.product.id} newCount={item.count - 1} />
                 <Input className="w-8 h-8 flex items-center justify-center" value={item.count}></Input>
 
               </div>
